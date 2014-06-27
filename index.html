@@ -13,6 +13,7 @@
     <script type="text/javascript">
       var id = window.location.search.substring(1).match(new RegExp("(^|&)id=([^&]*)(&|$)", "i"))[2];
       var url = 'tmall://tmallclient/?{"action":"internal:url=tmall://mobile.tmall.com/page/brandShowPostDetail?feedId=' + id + '"}';
+      var ua = window.navigator.userAgent;
       var gd = document.getElementById("guide");
       if (ua.indexOf("MicroMessenger") > 0) {
         if (ua.indexOf("iPhone")) {
