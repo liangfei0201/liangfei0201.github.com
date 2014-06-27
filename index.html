@@ -11,7 +11,18 @@
   <body>
     <div id="guide" style="font-size: 40px;"><a href="tmall://mobile.tmall.com/page/brandShowMain">下载天猫</a></div>
     <script type="text/javascript">
-      document.getElementById("guide").innerHTML = window.navigator.userAgent;
+      var id = window.location.search.substring(1).match(new RegExp("(^|&)id=([^&]*)(&|$)", "i"))[2];
+      var url = 'tmall://tmallclient/?{"action":"internal:url=tmall://mobile.tmall.com/page/brandShowPostDetail?feedId=' + id + '"}';
+      var gd = document.getElementById("guide");
+      if (ua.indexOf("MicroMessenger") > 0) {
+        if (ua.indexOf("iPhone")) {
+          gd.innerHTML = "点击右上角“...”在Safari中打开<br><br><br><br>" + ua;
+        } else {
+          gd.innerHTML = "点击右上角“...”浏览器打开<br><br><br><br>" + ua;
+        }
+      } else {
+        window.location.href = url;
+      }
     </script>
   </body>
 </html>
